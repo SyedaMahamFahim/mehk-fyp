@@ -32,6 +32,11 @@ const navConfig = [
     path: '/feedback',
     icon: icon('ic_cart'),
   },
+  {
+    title: 'employee',
+    path: '/employee',
+    icon: icon('ic_user'),
+  }
 
 ];
 

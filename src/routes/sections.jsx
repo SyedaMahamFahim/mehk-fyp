@@ -44,17 +44,17 @@ export default function Router() {
         ),
         children: [
           { element: <IndexPage />, index: true },
-          { path: 'user', element: <UserPage /> },
+          { path: 'employee', element: <UserPage /> },
           { path: 'products', element: <ProductsPage /> },
           { path: 'blog', element: <BlogPage /> },
           { path: 'feedback', element: <FeedbackPage /> },
           { path: 'add-user', element: <AddUserPage /> },
-          { path: 'register', element: <RegisterPage /> },
-          { path: 'register/registration-form', element: <RegistrationFormPage /> },
+          { path: 'register', element: <RegistrationFormPage /> },
           { path: 'dashboard', element: <DashboardPage /> },
           { path: 'verification', element: <VerificationPage /> },
           { path: 'verification/camera-scan', element: <CameraScanPage /> },
           { path: 'user-setting', element: <UserSettingPage /> },
+          
         ],
       },
 

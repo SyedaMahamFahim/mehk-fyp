@@ -36,7 +36,7 @@ export const PRICE_OPTIONS = [
 ];
 export const COLOR_OPTIONS = [
   '#00AB55',
-  '#000000',
+  '#FFFFFF',
   '#FFFFFF',
   '#FFC0CB',
   '#FF4842',

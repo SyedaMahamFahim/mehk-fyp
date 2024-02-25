@@ -101,6 +101,7 @@ export default function Nav({ openNav, onCloseNav }) {
             height: 1,
             position: 'fixed',
             width: NAV.WIDTH,
+            backgroundColor: '#38A8B7',
             borderRight: (theme) => `dashed 1px ${theme.palette.divider}`,
           }}
         >
