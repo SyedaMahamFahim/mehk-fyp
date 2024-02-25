@@ -9,6 +9,7 @@ import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
+import { Link } from 'react-router-dom';
 
 import { users } from '../../../_mock/user';
 
@@ -96,11 +97,14 @@ export default function UserPage() {
 
   return (
     <Container>
-      <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-        <Typography variant="h4">Employees</Typography>
-
-
-      </Stack>
+    <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+            <Typography variant="h4">Employees</Typography>
+            <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>           
+              <Link to={'/add-user'}>
+              Add Employee
+              </Link>
+            </Button>
+          </Stack>
 
       <Card>
         <UserTableToolbar

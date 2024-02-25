@@ -10,11 +10,11 @@ const RegistrationForm = () => {
         <Container>
             <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
             <Typography variant="h4" sx={{ textAlign: 'center' }}>
-                    <span><Link to="/register">Registration / </Link></span>Scan
-                </Typography>
+            Registration                
+            </Typography>
             </Stack>
             <Card >
-                <Grid container spacing={2} >
+                <Grid container spacing={2} sx={{backgroundColor : '#F3F1F1'}} >
                     <Grid item xs={12} sm={6}>
                         {/* Left Side - Image */}
                         <div style={{ backgroundImage: 'url("/assets/register.png")', backgroundSize: 'cover', height: '100%' }} />
@@ -28,8 +28,7 @@ const RegistrationForm = () => {
                                     <TextField
                                         fullWidth
                                         required
-                                        id="outlined-required-1"
-                                        label="Required"
+                                        id="outlined-required-1"                                      
                                         defaultValue=""
                                         sx={{ my: 1 }}
                                     />
@@ -42,7 +41,7 @@ const RegistrationForm = () => {
                                         fullWidth
                                         required
                                         id="outlined-required-1"
-                                        label="Required"
+                                        
                                         defaultValue=""
                                         sx={{ my: 1 }}
                                     />
@@ -58,7 +57,7 @@ const RegistrationForm = () => {
                                         fullWidth
                                         required
                                         id="outlined-required-1"
-                                        label="Required"
+                                        
                                         defaultValue=""
                                         sx={{ my: 1 }}
                                     />
@@ -71,7 +70,7 @@ const RegistrationForm = () => {
                                         fullWidth
                                         required
                                         id="outlined-required-1"
-                                        label="Required"
+                                       
                                         defaultValue=""
                                         sx={{ my: 1 }}
                                     />
@@ -87,7 +86,7 @@ const RegistrationForm = () => {
                                         fullWidth
                                         required
                                         id="outlined-required-1"
-                                        label="Required"
+                                        
                                         defaultValue=""
                                         sx={{ my: 1 }}
                                     />
@@ -100,7 +99,7 @@ const RegistrationForm = () => {
                                         fullWidth
                                         required
                                         id="outlined-required-1"
-                                        label="Required"
+                                        
                                         defaultValue=""
                                         sx={{ my: 1 }}
                                     />
