@@ -39,7 +39,7 @@ export const success = withAlphas({
   main: '#10B981',
   dark: '#0B815A',
   darkest: '#134E48',
-  contrastText: '#FFFFFF'
+  contrastText: '#black'
 });
 
 export const info = withAlphas({

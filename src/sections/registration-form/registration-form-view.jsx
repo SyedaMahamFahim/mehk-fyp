@@ -87,6 +87,7 @@ const RegistrationForm = () => {
                   />
                 </Box>
               </Grid>
+
               <Grid item xs={12} sm={6}>
                 <Box sx={{ m: 2 }}>
                   <Typography variant="h6" sx={{ m: 1 }}>
@@ -107,7 +108,7 @@ const RegistrationForm = () => {
               <Grid item xs={12} sm={6}>
                 <Box sx={{ m: 2 }}>
                   <Typography variant="h6" sx={{ m: 1 }}>
-                    Create Password
+                    Date of Birth
                   </Typography>
                   <TextField
                     fullWidth
@@ -121,7 +122,7 @@ const RegistrationForm = () => {
               <Grid item xs={12} sm={6}>
                 <Box sx={{ m: 2 }}>
                   <Typography variant="h6" sx={{ m: 1 }}>
-                    Confirm Password
+                    Phone Number
                   </Typography>
                   <TextField
                     fullWidth
@@ -132,6 +133,57 @@ const RegistrationForm = () => {
                   />
                 </Box>
               </Grid>
+            </Grid>
+
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <Box sx={{ m: 2 }}>
+                  <Typography variant="h6" sx={{ m: 1 }}>
+                    CNIC Number
+                  </Typography>
+                  <TextField
+                    fullWidth
+                    required
+                    id="outlined-required-1"
+                    defaultValue=""
+                    sx={{ my: 1 }}
+                  />
+                </Box>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Box sx={{ m: 2 }}>
+                  <Typography variant="h6" sx={{ m: 1 }}>
+                    Nationality
+                  </Typography>
+                  <TextField
+                    fullWidth
+                    required
+                    id="outlined-required-1"
+                    defaultValue=""
+                    sx={{ my: 1 }}
+                  />
+                </Box>
+              </Grid>
+
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <Box sx={{ m: 2 }}>
+                  <Typography variant="h6" sx={{ m: 1 }}>
+                    Email
+                  </Typography>
+                  <TextField
+                    fullWidth
+                    required
+                    id="outlined-required-1"
+                    defaultValue=""
+                    sx={{ my: 1 }}
+                  />
+                </Box>
+              </Grid>
+
+            </Grid>
+
+
             </Grid>
 
             <Grid container spacing={2} sx={{ my: 1, mx: 1 }}>

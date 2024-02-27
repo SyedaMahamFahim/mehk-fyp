@@ -11,9 +11,9 @@ export const grey = {
   300: '#DFE3E8',
   400: '#C4CDD5',
   500: '#919EAB',
-  600: '#FFFFFF',
+  600: '#242424',
   700: '#454F5B',
-  800: '#212B36',
+  800: '#38A8B7',
   900: '#161C24',
 };
 
@@ -106,7 +106,7 @@ export function palette() {
     ...base,
     mode: 'light',
     text: {
-      primary: grey[800],
+      primary: grey[600],
       secondary: grey[600],
       disabled: grey[500],
     },

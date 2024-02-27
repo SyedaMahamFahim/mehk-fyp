@@ -73,7 +73,7 @@ function LoginView() {
           color: alpha(theme.palette.background.default, 0.9),
           imgUrl: '/assets/background/overlay_4.jpg',
         }),
-        height: 1,
+        height: 790,
       }}
     >
 
@@ -87,7 +87,7 @@ function LoginView() {
         >
           <Typography variant="h4" sx={{
             py: 5,
-          }}>Sign in to Minimal</Typography>
+          }}>Welcome to Iris Based Verification System</Typography>
           {renderForm}
         </Card>
       </Stack>
@@ -97,3 +97,6 @@ function LoginView() {
 
 
 export default LoginView
+
+
+

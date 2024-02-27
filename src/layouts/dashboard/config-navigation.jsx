@@ -23,7 +23,7 @@ const navConfig = [
     icon: icon('ic_user'),
   },
   {
-    title: 'register',
+    title: 'registration',
     path: '/register',
     icon: icon('ic_user'),
   },

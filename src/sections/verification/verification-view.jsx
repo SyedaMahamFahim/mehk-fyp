@@ -100,17 +100,17 @@ const Verification = () => {
               </li>
               <li style={{ paddingBottom: "10px" }}>
                 <Typography variant="p" fontSize={20}>
-                  If you have not registered, then register your account first.
+                  Make sure you have opened the camera for scanning your eyes.
                 </Typography>
               </li>
               <li style={{ paddingBottom: "10px" }}>
                 <Typography variant="p" fontSize={20}>
-                  Already registered, then start verification process.{" "}
+                  Dont forget to give feedback about your experience.{" "}
                 </Typography>
               </li>
               <li style={{ paddingBottom: "10px" }}>
                 <Typography variant="p" fontSize={20}>
-                  If you have not registered, then register your account first.
+                  If you are facing any issue, then contact us.
                 </Typography>
               </li>
               <li style={{ paddingBottom: "10px" }}>

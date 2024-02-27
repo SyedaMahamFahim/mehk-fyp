@@ -20,7 +20,7 @@ const MENU_OPTIONS = [
     url:"/"
   },
   {
-    label: 'Add User',
+    label: 'Add Employee',
     icon: 'eva:person-fill',
     url:"/add-user"
   },
