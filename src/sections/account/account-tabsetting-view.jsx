@@ -34,7 +34,7 @@ function a11yProps(index) {
 
 
 
-const UserSetting = () => {
+export const AccountTabSettingView = () => {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -90,4 +90,3 @@ const UserSetting = () => {
     );
 };
 
-export default UserSetting;

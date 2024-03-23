@@ -4,19 +4,15 @@ import { Outlet, Navigate, useRoutes } from 'react-router-dom';
 import DashboardLayout from '../layouts/dashboard';
 
 export const IndexPage = lazy(() => import('../pages/app'));
-export const BlogPage = lazy(() => import('../pages/blog'));
-export const UserPage = lazy(() => import('../pages/user'));
+export const AllEmployeesPage = lazy(() => import('../pages/all-employees'));
 export const LoginPage = lazy(() => import('../pages/login'));
-export const ProductsPage = lazy(() => import('../pages/products'));
 export const Page404 = lazy(() => import('../pages/page-not-found'));
 export const FeedbackPage = lazy(() => import('../pages/feedback'));
-export const AddUserPage = lazy(() => import('../pages/add-user'));
+export const AddEmployeePage = lazy(() => import('../pages/add-employee'));
 export const RegisterPage = lazy(() => import('../pages/register'));
-export const RegistrationFormPage = lazy(() => import('../pages/registration-form'));
 export const DashboardPage = lazy(() => import('../pages/dashboard'));
 export const VerificationPage = lazy(() => import('../pages/verification'));
-export const CameraScanPage = lazy(() => import('../pages/camera-scan'));
-export const UserSettingPage = lazy(() => import('../pages/user-setting'));
+export const AccountSettingPage = lazy(() => import('../pages/account-setting'));
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -44,17 +40,13 @@ export default function Router() {
         ),
         children: [
           { element: <IndexPage />, index: true },
-          { path: 'employee', element: <UserPage /> },
-          { path: 'products', element: <ProductsPage /> },
-          { path: 'blog', element: <BlogPage /> },
+          { path: 'all-employee', element: <AllEmployeesPage /> },
           { path: 'feedback', element: <FeedbackPage /> },
-          { path: 'add-user', element: <AddUserPage /> },
-          { path: 'register', element: <RegistrationFormPage /> },
+          { path: 'add-employee', element: <AddEmployeePage /> },
+          { path: 'register', element: <RegisterPage /> },
           { path: 'dashboard', element: <DashboardPage /> },
           { path: 'verification', element: <VerificationPage /> },
-          { path: 'verification/camera-scan', element: <CameraScanPage /> },
-          { path: 'user-setting', element: <UserSettingPage /> },
-          
+          { path: 'account-setting', element: <AccountSettingPage /> },
         ],
       },
 

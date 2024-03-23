@@ -18,7 +18,7 @@ const user = {
   timezone: 'GTM-7'
 };
 
-export const AccountProfile = () => (
+export const AccountProfileView = () => (
   <Card>
     <CardContent>
       <Box

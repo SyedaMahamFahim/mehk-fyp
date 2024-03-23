@@ -1,12 +1,12 @@
 
-import { RegisterView } from '../sections/register';
+import { RegistrationFormView } from '../sections/registration-form';
 
 // ----------------------------------------------------------------------
 
 export default function RegisterPage() {
   return (
     <>
-      <RegisterView />
+      <RegistrationFormView />
     </>
   );
 }

@@ -22,12 +22,12 @@ const MENU_OPTIONS = [
   {
     label: 'Add Employee',
     icon: 'eva:person-fill',
-    url:"/add-user"
+    url:"/add-employee"
   },
   {
     label: 'Settings',
     icon: 'eva:settings-2-fill',
-    url:"/user-setting"
+    url:"/account-setting"
   },
 ];
 

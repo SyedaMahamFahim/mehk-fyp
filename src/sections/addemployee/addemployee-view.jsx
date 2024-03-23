@@ -13,7 +13,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 // ----------------------------------------------------------------------
 
-export default function AddUserPage() {
+export default function AddEmployeeView() {
   return (
     <>
       <Container>

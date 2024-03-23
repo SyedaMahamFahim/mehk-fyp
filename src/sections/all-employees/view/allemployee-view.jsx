@@ -25,7 +25,7 @@ import { emptyRows, applyFilter, getComparator } from "../utils";
 
 // ----------------------------------------------------------------------
 
-export default function UserPage() {
+export default function AllEmployeePageView() {
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState("asc");
@@ -109,7 +109,7 @@ export default function UserPage() {
           color="inherit"
           startIcon={<Iconify icon="eva:plus-fill" />}
         >
-          <Link to={"/add-user"}>Add Employee</Link>
+          <Link to={"/add-employee"}>Add Employee</Link>
         </Button>
       </Stack>
 
