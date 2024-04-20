@@ -1,20 +1,20 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import LoadingButton from '@mui/lab/LoadingButton';
-import { alpha, useTheme } from '@mui/material/styles';
-import InputAdornment from '@mui/material/InputAdornment';
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import LoadingButton from "@mui/lab/LoadingButton";
+import { alpha, useTheme } from "@mui/material/styles";
+import InputAdornment from "@mui/material/InputAdornment";
 
-import { useRouter } from '../../routes/hooks';
+import { useRouter } from "../../routes/hooks";
 
-import { bgGradient } from '../../theme/css';
+import { bgGradient } from "../../theme/css";
 
-import Iconify from '../../components/iconify';
+import Iconify from "../../components/iconify";
 
 // ----------------------------------------------------------------------
 function LoginView() {
@@ -23,32 +23,57 @@ function LoginView() {
   const router = useRouter();
 
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const handleClick = () => {
-    router.push('/dashboard');
+    fetch("http://localhost:5000/api/v1/employee/login", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((user) => console.log(user));
+    router.push("/dashboard");
   };
 
   const renderForm = (
     <>
       <Stack spacing={3}>
-        <TextField name="email" label="Email address" />
+        <TextField
+          name="email"
+          label="Email address"
+          // value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
         <TextField
           name="password"
           label="Password"
-          type={showPassword ? 'text' : 'password'}
+          // value={password}
+          onChange={(p) => setPassword(p.target.value)}
+          type={showPassword ? "text" : "password"}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                  <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
+                <IconButton
+                  onClick={() => setShowPassword(!showPassword)}
+                  edge="end"
+                >
+                  <Iconify
+                    icon={showPassword ? "eva:eye-fill" : "eva:eye-off-fill"}
+                  />
                 </IconButton>
               </InputAdornment>
             ),
           }}
         />
       </Stack>
-
 
       <LoadingButton
         fullWidth
@@ -71,12 +96,11 @@ function LoginView() {
       sx={{
         ...bgGradient({
           color: alpha(theme.palette.background.default, 0.9),
-          imgUrl: '/assets/background/overlay_4.jpg',
+          imgUrl: "/assets/background/overlay_4.jpg",
         }),
         height: 790,
       }}
     >
-
       <Stack alignItems="center" justifyContent="center" sx={{ height: 1 }}>
         <Card
           sx={{
@@ -85,9 +109,14 @@ function LoginView() {
             maxWidth: 420,
           }}
         >
-          <Typography variant="h4" sx={{
-            py: 5,
-          }}>Welcome to Iris Based Verification System</Typography>
+          <Typography
+            variant="h4"
+            sx={{
+              py: 5,
+            }}
+          >
+            Welcome to Iris Based Verification System
+          </Typography>
           {renderForm}
         </Card>
       </Stack>
@@ -95,8 +124,4 @@ function LoginView() {
   );
 }
 
-
-export default LoginView
-
-
-
+export default LoginView;
