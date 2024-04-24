@@ -15,6 +15,7 @@ import { useRouter } from "../../routes/hooks";
 import { bgGradient } from "../../theme/css";
 
 import Iconify from "../../components/iconify";
+import { getToken, setToken } from '../../utils/token-util';
 
 // ----------------------------------------------------------------------
 function LoginView() {
@@ -26,7 +27,8 @@ function LoginView() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const handleClick = () => {
+  const login = () => {
+
     fetch("http://localhost:5000/api/v1/employee/login", {
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +40,15 @@ function LoginView() {
       }),
     })
       .then((response) => response.json())
-      .then((user) => console.log(user));
+      .then((user) => {
+        if (!user || user.success == true) {
+          // console.log(user.token);
+          setToken(`${user.token}`);
+          console.log(
+            `local storage***\n${getToken()} `
+          );
+        }
+      });
     router.push("/dashboard");
   };
 
@@ -81,7 +91,7 @@ function LoginView() {
         type="submit"
         variant="contained"
         color="inherit"
-        onClick={handleClick}
+        onClick={login}
         sx={{
           my: 5,
         }}

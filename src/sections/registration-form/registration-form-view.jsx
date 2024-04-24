@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import {
   Box,
   Container,
@@ -10,11 +11,60 @@ import {
   Card,
 } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-import { Link } from "react-router-dom";
-
+import { getToken } from "../../utils/token-util";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-const RegistrationForm = () => {
+function RegisterView() {
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
+  const [address, setAdress] = useState();
+  const [dob, setDob] = useState();
+  const [phone, setPhone] = useState();
+  const [cnic, setCnic] = useState();
+  const [nationality, setNationality] = useState();
+
+  const register = () => {
+    const token = getToken();
+    const body = JSON.stringify({
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      address: address,
+      dob: dob,
+      phone: phone,
+      cnic: cnic,
+      nationality: nationality,
+    });
+    if (
+      body.firstName ||
+      body.lastName ||
+      body.email ||
+      body.address ||
+      body.dob ||
+      body.phone ||
+      body.cnic ||
+      body.nationality
+    ) {
+      console.log(
+        `---http://localhost:5000/api/v1/employee/person/register---`
+      );
+      fetch(`http://localhost:5000/api/v1/employee/person/register`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        method: "POST",
+        body: body,
+      })
+        .then((response) => response.json())
+        .then((user) => console.log(user));
+      console.log(body);
+    } else {
+      alert("Please fill required fields");
+    }
+  };
+
   return (
     <Container>
       <Stack
@@ -52,6 +102,7 @@ const RegistrationForm = () => {
                     required
                     id="outlined-required-1"
                     defaultValue=""
+                    onChange={(f) => setFirstName(f.target.value)}
                     sx={{ my: 1 }}
                   />
                 </Box>
@@ -66,6 +117,7 @@ const RegistrationForm = () => {
                     required
                     id="outlined-required-1"
                     defaultValue=""
+                    onChange={(l) => setLastName(l.target.value)}
                     sx={{ my: 1 }}
                   />
                 </Box>
@@ -81,6 +133,7 @@ const RegistrationForm = () => {
                   <TextField
                     fullWidth
                     required
+                    onChange={(e) => setEmail(e.target.value)}
                     id="outlined-required-1"
                     defaultValue=""
                     sx={{ my: 1 }}
@@ -98,6 +151,7 @@ const RegistrationForm = () => {
                     required
                     id="outlined-required-1"
                     defaultValue=""
+                    onChange={(a) => setAdress(a.target.value)}
                     sx={{ my: 1 }}
                   />
                 </Box>
@@ -115,6 +169,7 @@ const RegistrationForm = () => {
                     required
                     id="outlined-required-1"
                     defaultValue=""
+                    onChange={(d) => setDob(d.target.value)}
                     sx={{ my: 1 }}
                   />
                 </Box>
@@ -129,6 +184,7 @@ const RegistrationForm = () => {
                     required
                     id="outlined-required-1"
                     defaultValue=""
+                    onChange={(p) => setPhone(p.target.value)}
                     sx={{ my: 1 }}
                   />
                 </Box>
@@ -146,6 +202,7 @@ const RegistrationForm = () => {
                     required
                     id="outlined-required-1"
                     defaultValue=""
+                    onChange={(cnic) => setCnic(cnic.target.value)}
                     sx={{ my: 1 }}
                   />
                 </Box>
@@ -160,30 +217,11 @@ const RegistrationForm = () => {
                     required
                     id="outlined-required-1"
                     defaultValue=""
+                    onChange={(n) => setNationality(n.target.value)}
                     sx={{ my: 1 }}
                   />
                 </Box>
               </Grid>
-
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <Box sx={{ m: 2 }}>
-                  <Typography variant="h6" sx={{ m: 1 }}>
-                    Email
-                  </Typography>
-                  <TextField
-                    fullWidth
-                    required
-                    id="outlined-required-1"
-                    defaultValue=""
-                    sx={{ my: 1 }}
-                  />
-                </Box>
-              </Grid>
-
-            </Grid>
-
-
             </Grid>
 
             <Grid container spacing={2} sx={{ my: 1, mx: 1 }}>
@@ -193,7 +231,12 @@ const RegistrationForm = () => {
               </Typography>
             </Grid>
             <Grid container spacing={2} sx={{ my: 1, mx: 2 }}>
-              <Button variant="contained" color="inherit" sx={{ mt: 5 }}>
+              <Button
+                variant="contained"
+                color="inherit"
+                onClick={register}
+                sx={{ mt: 5 }}
+              >
                 Submit
               </Button>
             </Grid>
@@ -202,6 +245,5 @@ const RegistrationForm = () => {
       </Card>
     </Container>
   );
-};
-
-export default RegistrationForm;
+}
+export default RegisterView;
