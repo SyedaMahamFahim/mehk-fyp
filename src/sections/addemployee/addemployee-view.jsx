@@ -9,6 +9,8 @@ import {
   Box,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { getToken } from "../../utils/token-util";
+
 
 export default function AddEmployeeView() {
   // State variables for form fields
@@ -64,7 +66,7 @@ export default function AddEmployeeView() {
   };
 
   const validatePhone = () => {
-    const phoneRegex = /^\d{10}$/;
+    const phoneRegex = /^\d{11}$/;
     if (!phoneRegex.test(phone)) {
       setPhoneError("Invalid phone number");
     } else {
@@ -161,9 +163,39 @@ export default function AddEmployeeView() {
       !cnicError &&
       !dobError
     ) {
+      addEmployee();
       // Perform form submission or any other action
       console.log("Form submitted successfully");
     }
+  };
+
+  const addEmployee = () => {
+    const token = getToken();
+    const body = JSON.stringify({
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      address: address,
+      dob: dob,
+      phone: phone,
+      cnic: cnic,
+      nationality: nationality,
+      password: password,
+      gender: gender,
+      religion: religion,
+    });
+
+    console.log(`---http://localhost:5000/api/v1/admin/createEmployee---`);
+    fetch(`http://localhost:5000/api/v1/admin/createEmployee`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      method: "POST",
+      body: body,
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   };
 
   return (

@@ -10,7 +10,8 @@ import {
   Card,
 } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { getToken } from "../../utils/token-util";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -83,7 +84,7 @@ const RegistrationForm = () => {
     if (!phoneNumber.trim()) {
       setPhoneNumberError("Phone number is required");
     } else if (!/^92\d{10}$/.test(phoneNumber)) {
-      setPhoneNumberError("Correct format: +92XXXXXXXXX");
+      setPhoneNumberError("Correct format: 92XXXXXXXXX");
     } else {
       setPhoneNumberError("");
     }
@@ -92,11 +93,13 @@ const RegistrationForm = () => {
   const validateCnic = () => {
     // Regular expression for CNIC validation
     const cnicRegex = /^\d{5}-\d{7}-\d$/;
-  
+
     if (!cnic.trim()) {
       setCnicError("CNIC number is required");
     } else if (!cnicRegex.test(cnic)) {
-      setCnicError("Invalid CNIC number format. Correct format is XXXXX-XXXXXXX-X");
+      setCnicError(
+        "Invalid CNIC number format. Correct format is XXXXX-XXXXXXX-X"
+      );
     } else {
       setCnicError("");
     }
@@ -141,11 +144,42 @@ const RegistrationForm = () => {
       !cnicError &&
       !nationalityError
     ) {
+      register();
       // Submit the form
       console.log("Form submitted successfully");
     }
   };
 
+  const register = () => {
+    const token = getToken();
+    const body = JSON.stringify({
+      person: {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        address: address,
+        dob: dob,
+        phone: phoneNumber,
+        cnic: cnic,
+        nationality: nationality,
+        gender: "male",
+        religion: "Islam",
+        iris: "iris",
+      },
+    });
+    console.log(body);
+    console.log(`---http://localhost:5000/api/v1/employee/person/register---`);
+    fetch(`http://localhost:5000/api/v1/employee/person/register`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      method: "POST",
+      body: body,
+    })
+      .then((response) => response.json())
+      .then((user) => console.log(user));
+  };
   return (
     <Container>
       <Stack
